@@ -25,7 +25,7 @@ class InstagramsController < ApplicationController
     #@Instagram.user_id = current_user.id
     if @Instagram.save
       # ビューヘルパーの「rake routesのprefix_path」でルーティングにリンク
-      redirect_to instagrams_path, notice: "ブログを作成しました"
+      redirect_to instagrams_path, notice: "画像を投稿しました"
       NoticeMailer.sendmail_instagram(@Instagram).deliver
     else
       render 'new' # newのViewへ(new.html.erb)
