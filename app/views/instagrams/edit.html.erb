@@ -4,13 +4,12 @@
 
 <p>
   <strong>Content:</strong>
-  <%= @instagram.content %>
+  <%= @Instagram.content %>
 </p>
 
 <p>
   <strong>Image:</strong>
-  <%#= image_tag @instagram.image.to_s %>
-  <%= @instagram.image %>
+  <div class="instagram_img"><%= image_tag @Instagram.image %></div><br>
 </p>
 
 <%= link_to 'Show', instagram_path, class: 'btn btn-primary btn-block' %> |

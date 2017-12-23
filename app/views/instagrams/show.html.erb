@@ -9,8 +9,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%#= image_tag @instagram.image.to_s %>
-  <%= @Instagram.image %>
+  <div class="instagram_img"><%= image_tag @Instagram.image %></div><br>
 </p>
 
 <%= link_to 'Edit', edit_instagram_path(@Instagram), class: 'btn btn-primary btn-block' %> |
