@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10 col-xs-10">
+<p id="notice"><%= notice %></p>
+
+<h1>Instagram(偽)</h1>
+<p class="flash"><%= notice %><%= alert %></p>
+  <tbody>
+    <% @instagrams.each do |instagram| %>
+        <%= instagram.content %><br>
+        <div class="instagram_img"><%= image_tag instagram.image %></div><br>
+        
+        <%= link_to 'Show', instagram_path(instagram), class: 'btn btn-default btn-sm btn-success' %>
+        <%= link_to 'Edit', edit_instagram_path(instagram), class: 'btn btn-default btn-sm btn-success' %>
+        <%= link_to 'Destroy', instagram_path(instagram), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default btn-sm btn-success' %>
+    <br><br>
+    <% end %>
+
+<br>
+
+<%= link_to 'New Instagram', new_instagram_path, class: 'btn btn-default btn-sm btn-success' %>
+</div>
+</div>
