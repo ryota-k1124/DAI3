@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  devise_for :users
   #get 'instagrams' => 'instagrams#index'
   resources :instagrams, only: [:index, :new, :create, :edit, :update, :destroy, :show]
   #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -11,6 +10,11 @@ Rails.application.routes.draw do
   # }
 
   root 'instagrams#index'
+  
+  devise_for :users, controllers: {
+    registrations: "users/registrations",
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
   
   #if Rails.env.development?
   #  mount LetterOpenerWeb::Engine, at: "/letter_opener"
