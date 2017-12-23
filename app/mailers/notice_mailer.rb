@@ -5,10 +5,11 @@ class NoticeMailer < ApplicationMailer
   #
   #   en.notice_mailer.sendmail_instagram.subject
   #
-  def sendmail_instagram
+  def sendmail_instagram(instagram)
+    @instagram = instagram
+    
     @greeting = "Hi"
 
-    mail to: "rank0724@hotmail.co.jp",
-         subject: '画像が投稿されました'
+    mail to: "rank0724@hotmail.co.jp",subject: "画像が投稿されました"
   end
 end
