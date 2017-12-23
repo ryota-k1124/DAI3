@@ -1,5 +1,4 @@
 class InstagramsController < ApplicationController
-  #before_action :authenticate_user!
   before_action :set_Instagram, only:[:edit, :update, :destroy, :show]
   before_action :authenticate_user!
   
@@ -21,8 +20,7 @@ class InstagramsController < ApplicationController
   def create
     ##Instagram.create(instagrams_params)
     @Instagram = Instagram.new(instagrams_params)
-    @blog.user_id = current_user.id
-    #@Instagram.user_id = current_user.id
+    @Instagram.user_id = current_user.id
     if @Instagram.save
       # ビューヘルパーの「rake routesのprefix_path」でルーティングにリンク
       redirect_to instagrams_path, notice: "画像を投稿しました"
@@ -64,7 +62,7 @@ class InstagramsController < ApplicationController
 ## paramsメソッドにて取得した値の内、Instagramのtitleとcontentだけ取り込み
   private
    def instagrams_params
-      params.require(:instagram).permit(:content, :image, :id)
+      params.require(:instagram).permit(:content, :image, :id, :user_id)
    end
 
    # idをキーとして値を取得するメソッド
