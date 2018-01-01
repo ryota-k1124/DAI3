@@ -5,16 +5,23 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 <header>
-<% if user_signed_in? %>
-  <li><%= link_to 'マイページ', edit_user_registration_path %></li>
-  <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-<% else %>
-  <li><%= link_to 'ログイン', new_user_session_path  %></li>
-  <li><%= link_to 'サインアップ', new_user_registration_path %></li>
-<% end %>
+ <ul>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+　　　　<% if user_signed_in? %>
+  　　　　　　<li><%= link_to 'マイページ', edit_user_registration_path %></li>
+  　　　　　　<li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+　　　　<% else %>
+  　　　　　　<li><%= link_to 'ログイン', new_user_session_path  %></li>
+  　　　　　<li><%= link_to 'サインアップ', new_user_registration_path %></li>
+　　　　<% end %>
+        </div><!-- /.container-fluid -->
+      </nav>
+    </ul>
 </header>
 <%= yield %>
 
