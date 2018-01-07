@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   #get 'instagrams' => 'instagrams#index'
   resources :instagrams, only: [:index, :new, :create, :edit, :update, :destroy, :show]
   #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
