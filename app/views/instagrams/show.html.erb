@@ -11,7 +11,7 @@
   <strong>Image:</strong>
   <div class="instagram_img"><%= image_tag @Instagram.image %></div><br>
 </p>
-<% if current_user.id == instagram.user.id %>
+<% if current_user.id == @Instagram.user.id %>
   <%= link_to 'Edit', edit_instagram_path(@Instagram), class: 'btn btn-primary btn-block' %>
 <% end %>
 
