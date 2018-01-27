@@ -10,8 +10,11 @@
         <div class="instagram_img"><%= image_tag instagram.image %></div><br>
         
         <%= link_to 'Show', instagram_path(instagram), class: 'btn btn-default btn-sm btn-success' %>
-        <%= link_to 'Edit', edit_instagram_path(instagram), class: 'btn btn-default btn-sm btn-success' %>
-        <%= link_to 'Destroy', instagram_path(instagram), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default btn-sm btn-success' %>
+        
+        <% if current_user.id == instagram.user.id %>
+          <%= link_to 'Edit', edit_instagram_path(instagram), class: 'btn btn-default btn-sm btn-success' %>
+          <%= link_to 'Destroy', instagram_path(instagram), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default btn-sm btn-success' %>
+        <% end %>
     <br><br>
     <% end %>
 
