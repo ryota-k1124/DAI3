@@ -38,6 +38,11 @@
   </div>
 
 <% end %>
+  <br>
+  <div class="field">
+    <%= f.label :現在のパスワードを入力後、画像をアップロード %><br />
+    <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+  </div>
   <div class="field">
     <%= profile_img(@user) if profile_img(@user) %>
     <%= f.file_field :avatar %>
