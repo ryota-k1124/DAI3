@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: DAI3_production
-  username: DAI3
-  password: <%= ENV['DAI3_DATABASE_PASSWORD'] %>
+  database: daikadai3_production
+  username: daikadai3
+  password: <%= ENV['daikadai3_DATABASE_PASSWORD'] %>
