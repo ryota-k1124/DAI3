@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'relationships/create'
+
+  get 'relationships/destroy'
+
+  get 'notifications/index'
+  resources :relationships, only: [:create, :destroy]
+  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   #get 'instagrams' => 'instagrams#index'
   resources :instagrams, only: [:index, :new, :create, :edit, :update, :destroy, :show]
@@ -11,11 +18,19 @@ Rails.application.routes.draw do
   # }
 
   root 'instagrams#index'
+  resources :instagrams do
+    resources :comments
+    post :confirm, on: :collection
+  end
   
   devise_for :users, controllers: {
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
+  resources :users, only: [:index, :show]
+  resources :conversations do
+    resources :messages
+  end
   
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"

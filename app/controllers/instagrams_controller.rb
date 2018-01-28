@@ -4,9 +4,10 @@ class InstagramsController < ApplicationController
   
   def index
     @instagrams = Instagram.all
-    #@IMG = current_user.id
-    #binding.pry
-    #raise
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new
@@ -35,11 +36,12 @@ class InstagramsController < ApplicationController
   end
   
   def show
+    @comment = @Instagram.comments.build
+    @comments = @Instagram.comments
+    Notification.find(params[:notification_id]).update(read: true) if params[:notification_id]
   end
   
   def update
-    #@Instagram = Instagram.find(params[:id])
-    ##@Instagram.update(instagrams_params)
     if @Instagram.update(instagrams_params)
       redirect_to instagrams_path, notice: "ブログを編集しました"
     else
