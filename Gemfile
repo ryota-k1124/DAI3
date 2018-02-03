@@ -70,6 +70,7 @@ gem 'pusher'
 gem 'fog'
 gem 'dotenv-rails'
 gem 'unicorn'
+gem 'best_in_place'
 group :development do
   gem 'letter_opener_web'
   gem 'dotenv-rails'
