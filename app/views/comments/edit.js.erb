@@ -1,1 +1,1 @@
-$('#edit_area_<%= @comments.id %>').html("<%= j(render 'comments/edit', { comments: @comment.instagram.comments, instagram: @comment.instagram }) %>");
+$('#edit_area_<%= @comment.id %>').html("<%= j(render 'comments/edit', { comments: @comment.instagram.comments, instagram: @comment.instagram }) %>");
