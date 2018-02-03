@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
   end
 
   def edit
-  
+    format.js { render :edit }
   end
 
   def update
@@ -34,6 +34,7 @@ class CommentsController < ApplicationController
     @instagram = @comment.instagram
     respond_to do |format|
       @comment.update
+      format.js { render :index }
     end
   end
 
