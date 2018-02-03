@@ -26,6 +26,15 @@ class CommentsController < ApplicationController
   end
 
   def edit
+  
+  end
+
+  def update
+    @comment = current_user.comments.find(params[:id])
+    @instagram = @comment.instagram
+    respond_to do |format|
+      @comment.update
+    end
   end
 
   def destroy
