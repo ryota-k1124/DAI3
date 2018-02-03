@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @comment = current_user.comments.find(params[:id])
+    @comment = Comment.find(params[:id])
     @instagram = @comment.instagram
   end
 
