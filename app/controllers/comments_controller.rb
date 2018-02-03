@@ -25,6 +25,10 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+  
+  end
+
   def destroy
     @comment = current_user.comments.find(params[:id])
     @instagram = @comment.instagram
