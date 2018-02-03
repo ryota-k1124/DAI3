@@ -31,12 +31,11 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @comment = current_user.comments.find(params[:id])
+    @comment = Comment.find(params[:id])
     @instagram = @comment.instagram
     respond_to do |format|
       @comment.update
       format.html { redirect_to instagram_path(@instagram), notice: 'コメントを編集しました。' }
-      format.js { render :index }
     end
   end
 
