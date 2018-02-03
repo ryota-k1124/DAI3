@@ -34,6 +34,7 @@ class CommentsController < ApplicationController
     @instagram = @comment.instagram
     respond_to do |format|
       @comment.update
+      format.html { redirect_to instagram_path(@instagram), notice: 'コメントを編集しました。' }
       format.js { render :index }
     end
   end
