@@ -26,7 +26,13 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    
+    @comment = current_user.comments.find(params[:id])
+    @instagram = @comment.instagram
+    respond_to do |format|
+      @comment.update
+      format.html { redirect_to instagram_path(@instagram), notice: 'コメントを編集します。' }
+      format.js { render :index }
+    end
   end
 
   def destroy
