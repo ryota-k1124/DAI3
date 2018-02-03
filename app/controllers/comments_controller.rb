@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    format.js { render :edit }
+    render :edit
   end
 
   def update
