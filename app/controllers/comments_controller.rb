@@ -27,15 +27,19 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find(params[:id])
-    @instagram = @comment.instagram
   end
 
   def update
     @comment = Comment.find(params[:id])
     @instagram = @comment.instagram
+    
     respond_to do |format|
-      @comment.update
-      format.html { redirect_to instagram_path(@instagram), notice: 'コメントを編集しました。' }
+      if @comment.update(comment_params)
+        format.html { redirect_to instagram_path(@instagram), notice:"コメントが編集されました!" }
+        format.js { render :index }
+      else
+        render 'edit'
+      end
     end
   end
 
