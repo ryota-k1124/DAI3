@@ -1,7 +1,7 @@
 <%= form_for(@Instagram) do |f| %>
   <% if @Instagram.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@Instagram.errors.count, "error") %> 件のエラーがあります:</h2>
+      <h2><%= @Instagram.errors.count %> 件のエラーがあります:</h2>
 
       <ul>
       <% @Instagram.errors.full_messages.each do |message| %>
