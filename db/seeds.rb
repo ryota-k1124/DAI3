@@ -24,7 +24,8 @@ while n <= 10
                password: password,
                password_confirmation: password,
                name: name,
-               uid: n
+               uid: n,
+               provider: n
                )
 
   Instagram.create(
