@@ -20,12 +20,12 @@ while n <= 10
   email = Faker::Internet.email
   password = "password"
   name = "test#{sn}"
+  uid = SecureRandom.uuid
   User.create!(email: email,
                password: password,
                password_confirmation: password,
                name: name,
-               uid: n,
-               provider: n
+               uid: uid
                )
 
   Instagram.create(
